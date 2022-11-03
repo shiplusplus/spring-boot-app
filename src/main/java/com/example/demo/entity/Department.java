@@ -24,7 +24,5 @@ public class Department {
 	private Long departmentId;
 	private String departmentName;
 
-	//@OneToMany(mappedBy = "department")
-	//List<Student> students;
 }
 
