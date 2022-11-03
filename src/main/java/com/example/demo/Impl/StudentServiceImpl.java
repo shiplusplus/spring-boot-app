@@ -1,8 +1,9 @@
-package com.example.demo.Services;
+package com.example.demo.Impl;
 
 import java.util.List;
 import java.util.Objects;
 
+import com.example.demo.Services.StudentService;
 import com.example.demo.entity.Department;
 import com.example.demo.entity.Student;
 import com.example.demo.repository.StudentRepository;
