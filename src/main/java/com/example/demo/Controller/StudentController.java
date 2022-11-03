@@ -15,28 +15,28 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/students")
 public class StudentController {
     @Autowired private StudentService studentService;
-    @PostMapping("/")
+    @PostMapping("/add")
     public Student saveStudent(@Valid @RequestBody Student student)
     {
         return studentService.saveStudent(student);
     }
-    @GetMapping("/")
+    @GetMapping("/getAll")
     public List<Student> fetchStudentList()
     {
         return studentService.fetchStudentList();
     }
-    @PutMapping("/{id}")
+    @PutMapping("/updateId/{id}")
     public Student updateStudent(@RequestBody Student student, @PathVariable("id") Long studentId)
     {
         return studentService.updateStudent(student, studentId);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getId/{id}")
     public Student fetchStudentById(@PathVariable("id")Long id)
     {
         return studentService.fetchStudentById(id);
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteId/{id}")
     public String deleteStudentById(@PathVariable("id") Long studentId)
     {
         studentService.deleteStudentById(studentId);
