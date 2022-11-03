@@ -9,8 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DepartmentServiceImpl
-	implements DepartmentService {
+public class DepartmentServiceImpl implements DepartmentService {
 
 	@Autowired
 	private DepartmentRepository departmentRepository;
@@ -37,6 +36,11 @@ public class DepartmentServiceImpl
 	public void deleteDepartmentById(Long departmentId)
 	{
 		departmentRepository.deleteById(departmentId);
+	}
+
+	@Override
+	public Department fetchDepartmentById(Long id) {
+		return departmentRepository.findById(id).get();
 	}
 }
 
