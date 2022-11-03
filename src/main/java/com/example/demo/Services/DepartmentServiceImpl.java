@@ -22,8 +22,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return (List<Department>) departmentRepository.findAll();
 	}
 	@Override
-	public Department
-	updateDepartment(Department department, Long departmentId)
+	public Department updateDepartment(Department department, Long departmentId)
 	{
 		Department depDB = departmentRepository.findById(departmentId).get();
 

@@ -3,6 +3,7 @@ package com.example.demo.Services;
 import java.util.List;
 import java.util.Objects;
 
+import com.example.demo.entity.Department;
 import com.example.demo.entity.Student;
 import com.example.demo.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,11 @@ public class StudentServiceImpl implements StudentService {
     public void deleteStudentById(Long studentId)
     {
         studentRepository.deleteById(studentId);
+    }
+
+    @Override
+    public Student fetchStudentById(Long id) {
+        return studentRepository.findById(id).get();
     }
 }
 
