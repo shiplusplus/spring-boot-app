@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table
 public class Department {
 
 	@Id
@@ -23,7 +24,7 @@ public class Department {
 	private Long departmentId;
 	private String departmentName;
 
-	@OneToMany(mappedBy = "department")
-	List<Student> students;
+	//@OneToMany(mappedBy = "department")
+	//List<Student> students;
 }
 
