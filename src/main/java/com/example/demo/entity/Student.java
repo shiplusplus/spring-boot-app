@@ -17,12 +17,12 @@ import javax.persistence.ManyToOne;
 @Builder
 public class Student {
 
+    @Id
+    private Long studentId;
+    private String studentName;
     @ManyToOne
     private Department department;
 
-    private String studentName;
 
-    @Id
-    private Long studentId;
 
 }

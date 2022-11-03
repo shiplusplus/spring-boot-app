@@ -22,8 +22,6 @@ public class Department {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long departmentId;
 	private String departmentName;
-	private String departmentAddress;
-	private String departmentCode;
 
 	@OneToMany(mappedBy = "department")
 	List<Student> students;

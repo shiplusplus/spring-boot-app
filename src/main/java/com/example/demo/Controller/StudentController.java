@@ -11,25 +11,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-
+@RequestMapping("/students")
 public class StudentController {
-
     @Autowired private StudentService studentService;
-
-    @PostMapping("/students")
-    public Student saveStudent(
-            @Valid @RequestBody Student student)
+    @PostMapping("/")
+    public Student saveStudent(@Valid @RequestBody Student student)
     {
         return studentService.saveStudent(student);
     }
-
-    @GetMapping("/students")
+    @GetMapping("/")
     public List<Student> fetchStudentList()
     {
         return studentService.fetchStudentList();
     }
-
-
 //    @PutMapping("/students/{id}")
 //    public Student
 //    updateStudent(@RequestBody Student student,
@@ -38,13 +32,10 @@ public class StudentController {
 //        return studentService.updateStudent(
 //                student, studentId);
 //    }
-
-    @DeleteMapping("/students/{id}")
-    public String deleteStudentById(@PathVariable("id")
-                                       Long studentId)
+    @DeleteMapping("/{id}")
+    public String deleteStudentById(@PathVariable("id") Long studentId)
     {
-        studentService.deleteStudentById(
-                studentId);
+        studentService.deleteStudentById(studentId);
         return "Deleted Successfully";
     }
 }
