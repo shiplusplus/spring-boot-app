@@ -23,15 +23,21 @@ public class StudentServiceImpl implements StudentService {
                 studentRepository.findAll();
     }
     @Override
-    public Student updateStudent(Student student, Long studentId)
+    public Student updateStudent(Student newStudentDetails, Long studentId)
     {
-        Student depDB = studentRepository.findById(studentId).get();
+        Student currentStudentDetails = studentRepository.findById(studentId).get();
 
-        if (Objects.nonNull(student.getStudentName()) && !"".equalsIgnoreCase(student.getStudentName())) {
-            depDB.setStudentName(student.getStudentName());
+        if (Objects.nonNull(newStudentDetails.getStudentName()) && !"".equalsIgnoreCase(newStudentDetails.getStudentName())) {
+            currentStudentDetails.setStudentName(newStudentDetails.getStudentName());
+        }
+        if (Objects.nonNull(newStudentDetails.getPhone()) && !"".equalsIgnoreCase(newStudentDetails.getPhone())) {
+            currentStudentDetails.setPhone(newStudentDetails.getPhone());
+        }
+        if (Objects.nonNull(newStudentDetails.getAadhar()) && !"".equalsIgnoreCase(newStudentDetails.getAadhar())) {
+            currentStudentDetails.setAadhar(newStudentDetails.getAadhar());
         }
 
-        return studentRepository.save(depDB);
+        return studentRepository.save(currentStudentDetails);
     }
     @Override
     public void deleteStudentById(Long studentId)

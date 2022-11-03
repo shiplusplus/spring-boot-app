@@ -24,14 +24,11 @@ public class StudentController {
     {
         return studentService.fetchStudentList();
     }
-//    @PutMapping("/students/{id}")
-//    public Student
-//    updateStudent(@RequestBody Student student,
-//                     @PathVariable("id") Long studentId)
-//    {
-//        return studentService.updateStudent(
-//                student, studentId);
-//    }
+    @PutMapping("/students/{id}")
+    public Student updateStudent(@RequestBody Student student, @PathVariable("id") Long studentId)
+    {
+        return studentService.updateStudent(student, studentId);
+    }
     @DeleteMapping("/{id}")
     public String deleteStudentById(@PathVariable("id") Long studentId)
     {
