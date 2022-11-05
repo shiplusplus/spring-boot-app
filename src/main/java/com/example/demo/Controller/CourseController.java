@@ -4,7 +4,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Services.CourseService;
-import com.example.demo.dto.CourseDto;
+//import com.example.demo.dto.CourseDto;
 import com.example.demo.model.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,9 +19,9 @@ public class CourseController {
 //	@Autowired
 //	private CourseDto courseDto;
 	@PostMapping("/add")
-	public CourseDto saveCourse(@Valid @RequestBody Course course)
+	public Course saveCourse(@Valid @RequestBody Course course)
 	{
-		return new CourseDto(courseService.saveCourse(course));
+		return courseService.saveCourse(course);
 	}
 	@GetMapping("/getAll")
 	public List<Course> fetchCourseList()
