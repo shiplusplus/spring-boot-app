@@ -1,7 +1,7 @@
 
 package com.example.demo.Services;
 
-import com.example.demo.entity.Department;
+import com.example.demo.model.Department;
 
 import java.util.List;
 

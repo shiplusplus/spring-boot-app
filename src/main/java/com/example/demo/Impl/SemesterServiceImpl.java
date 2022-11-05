@@ -1,13 +1,12 @@
 package com.example.demo.Impl;
 
 import com.example.demo.Services.SemesterService;
-import com.example.demo.entity.Semester;
+import com.example.demo.model.Semester;
 import com.example.demo.repository.SemesterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class SemesterServiceImpl implements SemesterService {

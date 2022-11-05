@@ -4,7 +4,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Services.SemesterService;
-import com.example.demo.entity.Semester;
+import com.example.demo.model.Semester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

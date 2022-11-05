@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 import com.example.demo.Services.DepartmentService;
-import com.example.demo.entity.Department;
+import com.example.demo.model.Department;
 import com.example.demo.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

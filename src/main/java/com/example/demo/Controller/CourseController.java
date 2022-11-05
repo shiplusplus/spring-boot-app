@@ -4,7 +4,8 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Services.CourseService;
-import com.example.demo.entity.Course;
+import com.example.demo.dto.CourseDto;
+import com.example.demo.model.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
