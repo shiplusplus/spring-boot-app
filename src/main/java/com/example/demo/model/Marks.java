@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +18,7 @@ public class Marks {
 
 
     @Id
-    private long Id;
+    private long marksId;
     @ManyToOne
     @JoinColumn(name="course_id")
     private Course course;
@@ -30,4 +31,9 @@ public class Marks {
     private int studentMarks;
     private int grade;
 
+    @JsonBackReference
+
+    public Course getCourse() {
+        return course;
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,11 +21,19 @@ public class Course {
     private String courseDescription;
     private int credits;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course",fetch = FetchType.LAZY)
     private List<Marks> courseMarksList;
 
 //    @ManyToOne
 //    @JoinColumn(name="departmentId")
 //    private Department department;
 
+    @JsonManagedReference
+    public List<Marks> getCourseMarksList() {
+        return courseMarksList;
+    }
+
+    public void setCourseMarksList(List<Marks> courseMarksList) {
+        this.courseMarksList = courseMarksList;
+    }
 }
