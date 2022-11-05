@@ -16,10 +16,12 @@ import java.util.List;
 @RequestMapping("/courses")
 public class CourseController {
 	@Autowired private CourseService courseService;
+//	@Autowired
+//	private CourseDto courseDto;
 	@PostMapping("/add")
-	public Course saveCourse(@Valid @RequestBody Course course)
+	public CourseDto saveCourse(@Valid @RequestBody Course course)
 	{
-		return courseService.saveCourse(course);
+		return new CourseDto(courseService.saveCourse(course));
 	}
 	@GetMapping("/getAll")
 	public List<Course> fetchCourseList()

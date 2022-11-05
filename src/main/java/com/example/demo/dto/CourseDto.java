@@ -8,7 +8,6 @@ public class CourseDto {
     private String courseName;
     private String departmentName;
     private int credits;
-    private long semester;
 
     public CourseDto(Course course){
 
@@ -16,8 +15,7 @@ public class CourseDto {
             this.courseId = course.getCourseId();
             this.courseName = course.getCourseName();
             this.credits = course.getCredits();
-            this.semester = course.getSemester().getSemesterId();
-            this.departmentName = course.getDepartment().getDepartmentName();
+            //this.departmentName = course.getDepartment().getDepartmentName();
         }
         catch(NullPointerException e)
         {

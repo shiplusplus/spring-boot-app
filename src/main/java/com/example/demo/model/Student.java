@@ -22,9 +22,12 @@ public class Student {
     private String studentName;
     private String phone;
     private String aadhar;
-    @ManyToOne
-    @JoinColumn(name="departmentId", nullable=false)
-    private Department department;
+    @OneToOne
+    @JoinColumn(name = "marksheetId")
+    private Marksheet marksheet;
+//    @ManyToOne
+//    @JoinColumn(name="departmentId", nullable=false)
+//    private Department department;
 
 
 

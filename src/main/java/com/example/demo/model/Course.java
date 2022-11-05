@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -16,13 +17,14 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long courseId;
     private String courseName;
+    private String courseDescription;
     private int credits;
 
-    @ManyToOne
-    @JoinColumn(name="departmentId")
-    private Department department;
+    @OneToMany(mappedBy = "course")
+    private List<Marks> courseMarksList;
 
-    @ManyToOne
-    @JoinColumn(name="semesterId")
-    private Semester semester;
+//    @ManyToOne
+//    @JoinColumn(name="departmentId")
+//    private Department department;
+
 }

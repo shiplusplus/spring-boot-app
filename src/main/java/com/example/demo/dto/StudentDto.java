@@ -15,7 +15,7 @@ public class StudentDto {
        this.studentId= student.getStudentId();
        this.studentName= student.getStudentName();
        this.aadhar=student.getAadhar();
-       this.departmentName=student.getDepartment().getDepartmentName();
+       //this.departmentName=student.getDepartment().getDepartmentName();
        this.phone=student.getPhone();
     }
 }
