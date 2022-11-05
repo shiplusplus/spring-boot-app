@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.example.demo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,12 +11,18 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Table
-public class Semester {
-
+public class Course {
     @Id
-    private long semesterId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long courseId;
+    private String courseName;
+    private int credits;
 
     @ManyToOne
     @JoinColumn(name="departmentId")
     private Department department;
+
+    @ManyToOne
+    @JoinColumn(name="semesterId")
+    private Semester semester;
 }

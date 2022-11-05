@@ -1,5 +1,5 @@
 
-package com.example.demo.entity;
+package com.example.demo.model;
 
 import javax.persistence.*;
 
@@ -7,8 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Entity
 @Data
