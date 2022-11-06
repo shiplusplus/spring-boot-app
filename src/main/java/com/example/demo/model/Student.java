@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,20 +28,27 @@ public class Student {
     private String aadhar;
 
     @OneToMany(mappedBy = "student")
+    private List<Address> addresses;
+    @OneToMany(mappedBy = "student")
     private List<Semester> semesters;
-
     @ManyToOne
     @JoinColumn(name="departmentId")
     private Department department;
 
+    //Getters
     @JsonManagedReference
     public List<Semester> getSemesters() {
         return semesters;
+    }
+    @JsonManagedReference
+    public List<Address> getAddresses() {
+        return addresses;
     }
 
     @JsonBackReference
     public Department getDepartment() {
         return department;
     }
+
 
 }

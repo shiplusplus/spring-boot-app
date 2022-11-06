@@ -2,8 +2,11 @@
 INSERT INTO department (department_id, department_name) VALUES (1000, 'CS');
 
 
-INSERT INTO student (student_id, student_name,department_id) VALUES (0026, 'Shivangi',1000);
-INSERT INTO student (student_id, student_name,department_id) VALUES (0027, 'Sagar',1000);
+INSERT INTO student (student_id, student_name,department_id) VALUES (26, 'Shivangi',1000);
+INSERT INTO student (student_id, student_name,department_id) VALUES (27, 'Sagar',1000);
+
+INSERT INTO address (address_id,address_name,student_id,country,city,pincode,address_line)
+VALUES (26001,'Current',26,'india','bangalore','560999','walmart tech');
 
 INSERT INTO semester (semester_id, semester_number,student_id) VALUES (26005,5,0026);
 INSERT INTO semester (semester_id, semester_number, student_id) VALUES (26006,6,0026);
