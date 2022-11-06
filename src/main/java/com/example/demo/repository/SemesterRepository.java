@@ -1,12 +1,11 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.Course;
-import com.example.demo.model.Marksheet;
+import com.example.demo.model.Semester;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MarksheetRepository extends CrudRepository<Marksheet,Long> {
+public interface SemesterRepository extends CrudRepository<Semester,Long> {
 
 
 }
