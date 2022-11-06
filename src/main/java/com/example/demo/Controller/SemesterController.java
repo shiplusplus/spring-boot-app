@@ -4,6 +4,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Services.SemesterService;
+import com.example.demo.dto.SemesterDTO;
 import com.example.demo.model.Semester;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,9 +29,9 @@ public class SemesterController {
 		return semesterService.fetchSemesterList();
 	}
 	@GetMapping("getId/{id}")
-	public Semester fetchSemesterbyId(@PathVariable("id")Long id)
+	public SemesterDTO fetchSemesterbyId(@PathVariable("id")Long id)
 	{
-		return semesterService.fetchSemesterById(id);
+		return new SemesterDTO(semesterService.fetchSemesterById(id));
 	}
 	@PutMapping("updateId/{id}")
 	public Semester

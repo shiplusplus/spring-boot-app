@@ -2,14 +2,14 @@ package com.example.demo.dto;
 
 import com.example.demo.model.Course;
 
-public class CourseDto {
+public class CourseDTO {
 
     private long courseId;
     private String courseName;
     private String departmentName;
     private int credits;
 
-    public CourseDto(Course course){
+    public CourseDTO(Course course){
 
         try {
             this.courseId = course.getCourseId();

@@ -4,6 +4,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Services.MarksService;
+import com.example.demo.dto.MarkDTO;
 import com.example.demo.model.Marks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,9 +29,9 @@ public class MarksController {
 		return marksService.fetchMarksList();
 	}
 	@GetMapping("getId/{id}")
-	public Marks fetchMarksbyId(@PathVariable("id")Long id)
+	public MarkDTO fetchMarksbyId(@PathVariable("id")Long id)
 	{
-		return marksService.fetchMarksById(id);
+		return new MarkDTO(marksService.fetchMarksById(id));
 	}
 	@PutMapping("updateId/{id}")
 	public Marks

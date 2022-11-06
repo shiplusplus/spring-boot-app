@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 import com.example.demo.Services.StudentService;
+import com.example.demo.dto.TranscriptDTO;
 import com.example.demo.model.Student;
 import com.example.demo.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,17 @@ public class StudentServiceImpl implements StudentService {
     public Student fetchStudentById(Long id) {
         return studentRepository.findById(id).get();
     }
+
+    @Override
+    public TranscriptDTO fetchTranscriptById(Long studentId) {
+        Student student=studentRepository.findById(studentId).get();
+        return new TranscriptDTO(student);
+    }
+
+//    @Override
+//    public TranscriptDTO fetchTranscriptById(Long studentId) {
+//        return null;
+//    }
 }
 
 

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import com.example.demo.Services.StudentService;
+import com.example.demo.dto.TranscriptDTO;
 import com.example.demo.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -40,6 +41,12 @@ public class StudentController {
     {
         studentService.deleteStudentById(studentId);
         return "Deleted Successfully";
+    }
+
+    @GetMapping("/transcript/{id}")
+    public TranscriptDTO fetchTranscript(@PathVariable("id") Long studentId)
+    {
+        return studentService.fetchTranscriptById(studentId);
     }
 }
 
