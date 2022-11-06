@@ -1,12 +1,14 @@
 package com.example.demo.model;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,13 +24,16 @@ public class Student {
     private String studentName;
     private String phone;
     private String aadhar;
-    @OneToOne
-    @JoinColumn(name = "marksheetId")
-    private Marksheet marksheet;
+
+    @OneToMany(mappedBy = "student")
+    private List<Semester> semesters;
+
 //    @ManyToOne
 //    @JoinColumn(name="departmentId", nullable=false)
 //    private Department department;
 
-
-
+    @JsonManagedReference
+    public List<Semester> getSemesters() {
+        return semesters;
+    }
 }

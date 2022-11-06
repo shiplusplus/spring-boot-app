@@ -16,7 +16,6 @@ import javax.persistence.*;
 @Table
 public class Marks {
 
-
     @Id
     private long marksId;
     @ManyToOne
@@ -24,16 +23,20 @@ public class Marks {
     private Course course;
 
     @ManyToOne
-    @JoinColumn(name="marksheet_id")
-    private Marksheet marksheet;
+    @JoinColumn(name="semester_id")
+    private Semester semester;
 
-    private int totalMarks;
-    private int studentMarks;
+//    private int totalMarks;
+//    private int studentMarks;
     private int grade;
 
     @JsonBackReference
-
     public Course getCourse() {
         return course;
+    }
+
+    @JsonBackReference
+    public Semester getSemester() {
+        return semester;
     }
 }
