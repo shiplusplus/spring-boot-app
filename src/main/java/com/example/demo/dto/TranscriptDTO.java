@@ -12,12 +12,13 @@ public class TranscriptDTO {
 
     String studentName;
     Long studentId;
+    String departmentName;
     List<SemesterDTO> semesters=new ArrayList<>();
 
     public TranscriptDTO(Student student)
     {
         this.studentName=(student.getStudentName()!=null)?student.getStudentName():null;
-
+        this.departmentName=(student.getDepartment()!=null)?student.getDepartment().getDepartmentName():null;
         this.studentId=student.getStudentId();
         if(student.getSemesters()!=null) {
             for (Semester s : student.getSemesters()) {

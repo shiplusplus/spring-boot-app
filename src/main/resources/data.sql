@@ -1,6 +1,9 @@
 
-INSERT INTO student (student_id, student_name) VALUES (0026, 'Shivangi');
-INSERT INTO student (student_id, student_name) VALUES (0027, 'Sagar');
+INSERT INTO department (department_id, department_name) VALUES (1000, 'CS');
+
+
+INSERT INTO student (student_id, student_name,department_id) VALUES (0026, 'Shivangi',1000);
+INSERT INTO student (student_id, student_name,department_id) VALUES (0027, 'Sagar',1000);
 
 INSERT INTO semester (semester_id, semester_number,student_id) VALUES (26005,5,0026);
 INSERT INTO semester (semester_id, semester_number, student_id) VALUES (26006,6,0026);

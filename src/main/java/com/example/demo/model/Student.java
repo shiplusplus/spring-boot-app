@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,12 +29,18 @@ public class Student {
     @OneToMany(mappedBy = "student")
     private List<Semester> semesters;
 
-//    @ManyToOne
-//    @JoinColumn(name="departmentId", nullable=false)
-//    private Department department;
+    @ManyToOne
+    @JoinColumn(name="departmentId")
+    private Department department;
 
     @JsonManagedReference
     public List<Semester> getSemesters() {
         return semesters;
     }
+
+    @JsonBackReference
+    public Department getDepartment() {
+        return department;
+    }
+
 }
