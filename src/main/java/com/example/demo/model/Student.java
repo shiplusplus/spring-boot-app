@@ -23,10 +23,13 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long studentId;
+    private String firstName;
+    private String lastName;
     private String studentName;
     private String phone;
     private String aadhar;
-
+    private String motherName;
+    private String fatherName;
     @OneToMany(mappedBy = "student")
     private List<Address> addresses;
     @OneToMany(mappedBy = "student")

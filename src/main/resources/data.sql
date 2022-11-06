@@ -2,8 +2,10 @@
 INSERT INTO department (department_id, department_name) VALUES (1000, 'CS');
 
 
-INSERT INTO student (student_id, student_name,department_id) VALUES (26, 'Shivangi',1000);
-INSERT INTO student (student_id, student_name,department_id) VALUES (27, 'Sagar',1000);
+INSERT INTO student (student_id, first_name,last_name,student_name,mother_name,father_name,phone,aadhar,department_id)
+VALUES (26, 'Shivangi','Gupta','Shivangi Gupta','Vaibhavi','Vaibhav','8800988009','1000100',1000);
+INSERT INTO student (student_id, first_name,last_name,student_name,mother_name,father_name,phone,aadhar,department_id)
+VALUES (45, 'Sagar','Jolly','Sagar Jolly','Sameera','Sameer','8800788007','1000100',1000);
 
 INSERT INTO address (address_id,address_name,student_id,country,city,pincode,address_line)
 VALUES (26001,'Current',26,'india','bangalore','560999','walmart tech');
