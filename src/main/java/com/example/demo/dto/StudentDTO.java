@@ -2,10 +2,11 @@ package com.example.demo.dto;
 
 import com.example.demo.model.Address;
 import com.example.demo.model.Student;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
 public class StudentDTO {
 
     private Long studentId;

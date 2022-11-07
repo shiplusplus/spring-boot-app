@@ -6,6 +6,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import com.example.demo.Services.StudentService;
+import com.example.demo.dto.StudentDTO;
 import com.example.demo.dto.TranscriptDTO;
 import com.example.demo.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +33,9 @@ public class StudentController {
     }
 
     @GetMapping("/getId/{id}")
-    public Student fetchStudentById(@PathVariable("id")Long id)
+    public StudentDTO fetchStudentById(@PathVariable("id")Long id)
     {
-        return studentService.fetchStudentById(id);
+        return new StudentDTO(studentService.fetchStudentById(id));
     }
     @DeleteMapping("/deleteId/{id}")
     public String deleteStudentById(@PathVariable("id") Long studentId)
