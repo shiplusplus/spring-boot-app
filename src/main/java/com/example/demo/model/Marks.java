@@ -26,8 +26,8 @@ public class Marks {
     @JoinColumn(name="semester_id")
     private Semester semester;
 
-//    private int totalMarks;
-//    private int studentMarks;
+    private int totalMarks;
+    private int studentMarks;
     private int grade;
 
     @JsonBackReference

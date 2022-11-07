@@ -21,14 +21,12 @@ public class Semester {
     @Id
     private Long semesterId;
     private Long semesterNumber;
-    //private List<Course> coursesTaken;
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
 
     @OneToMany(mappedBy = "semester")
     private List<Marks> marks;
-
 
     @JsonBackReference
     public Student getStudent() {
