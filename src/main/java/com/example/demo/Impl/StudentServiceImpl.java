@@ -58,10 +58,6 @@ public class StudentServiceImpl implements StudentService {
         return new TranscriptDTO(student);
     }
 
-//    @Override
-//    public TranscriptDTO fetchTranscriptById(Long studentId) {
-//        return null;
-//    }
 }
 
 

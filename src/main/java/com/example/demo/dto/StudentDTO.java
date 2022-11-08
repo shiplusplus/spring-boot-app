@@ -18,7 +18,7 @@ public class StudentDTO {
     private String motherName;
     private String fatherName;
     private String departmentName;
-    private List<Address> addresses=new ArrayList<>();
+    private List<Address> addresses;
 
     public StudentDTO(Student student)
     {

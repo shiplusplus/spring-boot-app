@@ -9,10 +9,8 @@ public class MarkDTO {
     String courseName;
     Integer grade;
 
-    public MarkDTO(Marks m)
-    {
-        this.courseName=(m.getCourse()!=null)?m.getCourse().getCourseName():null;
-        //this.grade=(m.getGrade()!=null)?m.getGrade:null;
-        this.grade=m.getGrade();
+    public MarkDTO(Marks marks) {
+        this.courseName = (marks.getCourse() != null) ? marks.getCourse().getCourseName() : null;
+        this.grade = marks.getGrade();
     }
 }

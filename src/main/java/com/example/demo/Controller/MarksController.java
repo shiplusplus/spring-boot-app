@@ -13,33 +13,31 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/markss")
+@RequestMapping("/marks")
 public class MarksController {
 	@Autowired private MarksService marksService;
-//	@Autowired
-//	private MarksDto marksDto;
-	@PostMapping("/add")
+	@PostMapping
 	public Marks saveMarks(@Valid @RequestBody Marks marks)
 	{
 		return marksService.saveMarks(marks);
 	}
-	@GetMapping("/getAll")
+	@GetMapping
 	public List<Marks> fetchMarksList()
 	{
 		return marksService.fetchMarksList();
 	}
-	@GetMapping("getId/{id}")
-	public MarkDTO fetchMarksbyId(@PathVariable("id")Long id)
+	@GetMapping("/{id}")
+	public MarkDTO fetchMarksById(@PathVariable("id")Long id)
 	{
 		return new MarkDTO(marksService.fetchMarksById(id));
 	}
-	@PutMapping("updateId/{id}")
+	@PutMapping("/{id}")
 	public Marks
 	updateMarks(@RequestBody Marks marks, @PathVariable("id") Long marksId)
 	{
 		return marksService.updateMarks(marks, marksId);
 	}
-	@DeleteMapping("DeleteId/{id}")
+	@DeleteMapping("/{id}")
 	public String deleteMarksById(@PathVariable("id") Long marksId)
 	{
 		marksService.deleteMarksById(marksId);

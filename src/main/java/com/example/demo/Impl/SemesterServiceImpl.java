@@ -17,7 +17,7 @@ public class SemesterServiceImpl implements SemesterService {
 	public Semester saveSemester(Semester semester)
 	{
 		return semesterRepository.save(semester);}
-	@Override public List<Semester> fetchSemesterList()
+	@Override public List<Semester> fetchSemesters()
 	{
 		return (List<Semester>) semesterRepository.findAll();
 	}

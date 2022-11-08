@@ -15,35 +15,34 @@ import java.util.List;
 @RestController
 @RequestMapping("/semesters")
 public class SemesterController {
-	@Autowired private SemesterService semesterService;
-//	@Autowired
-//	private SemesterDto semesterDto;
-	@PostMapping("/add")
-	public Semester saveSemester(@Valid @RequestBody Semester semester)
-	{
-		return semesterService.saveSemester(semester);
-	}
-	@GetMapping("/getAll")
-	public List<Semester> fetchSemesterList()
-	{
-		return semesterService.fetchSemesterList();
-	}
-	@GetMapping("getId/{id}")
-	public SemesterDTO fetchSemesterbyId(@PathVariable("id")Long id)
-	{
-		return new SemesterDTO(semesterService.fetchSemesterById(id));
-	}
-	@PutMapping("updateId/{id}")
-	public Semester
-	updateSemester(@RequestBody Semester semester, @PathVariable("id") Long semesterId)
-	{
-		return semesterService.updateSemester(semester, semesterId);
-	}
-	@DeleteMapping("DeleteId/{id}")
-	public String deleteSemesterById(@PathVariable("id") Long semesterId)
-	{
-		semesterService.deleteSemesterById(semesterId);
-		return "Deleted Successfully";
-	}
+    @Autowired
+    private SemesterService semesterService;
+
+    @PostMapping
+    public Semester saveSemester(@Valid @RequestBody Semester semester) {
+        return semesterService.saveSemester(semester);
+    }
+
+    //todo use dto not model
+    @GetMapping
+    public List<Semester> fetchSemesters() {
+        return semesterService.fetchSemesters();
+    }
+
+    @GetMapping("/{id}")
+    public SemesterDTO fetchSemesterById(@PathVariable("id") Long id) {
+        return new SemesterDTO(semesterService.fetchSemesterById(id));
+    }
+
+    @PutMapping("/{id}")
+    public Semester updateSemester(@RequestBody Semester semester, @PathVariable("id") Long semesterId) {
+        return semesterService.updateSemester(semester, semesterId);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteSemesterById(@PathVariable("id") Long semesterId) {
+        semesterService.deleteSemesterById(semesterId);
+        return "Deleted Successfully";
+    }
 }
 

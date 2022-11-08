@@ -18,20 +18,20 @@ public class CourseServiceImpl implements CourseService {
 	public Course saveCourse(Course course)
 	{
 		return courseRepository.save(course);}
-	@Override public List<Course> fetchCourseList()
+	@Override public List<Course> fetchCourses()
 	{
 		return (List<Course>) courseRepository.findAll();
 	}
 	@Override
 	public Course updateCourse(Course course, Long courseId)
 	{
-		Course depDB = courseRepository.findById(courseId).get();
+		Course currentCourse = courseRepository.findById(courseId).get();
 
 		if (Objects.nonNull(course.getCourseName()) && !"".equalsIgnoreCase(course.getCourseName())) {
-			depDB.setCourseName(course.getCourseName());
+			currentCourse.setCourseName(course.getCourseName());
 		}
 
-		return courseRepository.save(depDB);
+		return courseRepository.save(currentCourse);
 	}
 	@Override
 	public void deleteCourseById(Long courseId)

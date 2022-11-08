@@ -16,9 +16,9 @@ public class TranscriptDTO {
     List<SemesterDTO> semesters=new ArrayList<>();
 
     public TranscriptDTO(Student student)
-    {
-        this.studentName=(student.getStudentName()!=null)?student.getStudentName():null;
-        this.departmentName=(student.getDepartment()!=null)?student.getDepartment().getDepartmentName():null;
+    {//todo nullcheck here
+        this.studentName=student.getStudentName();
+        this.departmentName=student.getDepartment().getDepartmentName();
         this.studentId=student.getStudentId();
         if(student.getSemesters()!=null) {
             for (Semester s : student.getSemesters()) {

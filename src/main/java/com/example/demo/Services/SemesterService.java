@@ -9,7 +9,7 @@ public interface SemesterService {
 
 	Semester saveSemester(Semester semester);
 
-	List<Semester> fetchSemesterList();
+	List<Semester> fetchSemesters();
 	Semester updateSemester(Semester semester,
                              Long semesterId);
 	void deleteSemesterById(Long semesterId);

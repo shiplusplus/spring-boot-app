@@ -16,30 +16,28 @@ import java.util.List;
 @RequestMapping("/courses")
 public class CourseController {
 	@Autowired private CourseService courseService;
-//	@Autowired
-//	private CourseDto courseDto;
-	@PostMapping("/add")
+	@PostMapping
 	public Course saveCourse(@Valid @RequestBody Course course)
 	{
 		return courseService.saveCourse(course);
 	}
-	@GetMapping("/getAll")
-	public List<Course> fetchCourseList()
+	@GetMapping
+	public List<Course> fetchCourses()
 	{
-		return courseService.fetchCourseList();
+		return courseService.fetchCourses();
 	}
-	@GetMapping("getId/{id}")
-	public Course fetchCoursebyId(@PathVariable("id")Long id)
+	@GetMapping("/{id}")
+	public Course fetchCourseById(@PathVariable("id")Long id)
 	{
 		return courseService.fetchCourseById(id);
 	}
-	@PutMapping("updateId/{id}")
+	@PutMapping("/{id}")
 	public Course
 	updateCourse(@RequestBody Course course, @PathVariable("id") Long courseId)
 	{
 		return courseService.updateCourse(course, courseId);
 	}
-	@DeleteMapping("DeleteId/{id}")
+	@DeleteMapping("/{id}")
 	public String deleteCourseById(@PathVariable("id") Long courseId)
 	{
 		courseService.deleteCourseById(courseId);

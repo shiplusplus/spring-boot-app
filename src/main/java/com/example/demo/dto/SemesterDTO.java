@@ -10,18 +10,18 @@ import java.util.List;
 @Data
 public class SemesterDTO {
 
-    Long semesterNumber;
-    List<MarkDTO> coursesCompleted =new ArrayList<>();
+    private Long semesterNumber;
+    private List<MarkDTO> coursesCompleted = new ArrayList<>();
 
-    public SemesterDTO(Semester semester)
-    {
-        this.semesterNumber= semester.getSemesterNumber();
-        if(semester.getMarks()!=null) {
+    public SemesterDTO(Semester semester) {
+        this.semesterNumber = semester.getSemesterNumber();
+        if (semester.getMarks() != null) {
+            //todo use lambda
             for (Marks m : semester.getMarks()) {
                 this.coursesCompleted.add(new MarkDTO(m));
             }
         }
-        else this.coursesCompleted =null;
+
     }
 
 }

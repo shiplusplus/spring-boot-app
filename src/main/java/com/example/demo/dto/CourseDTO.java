@@ -1,7 +1,9 @@
 package com.example.demo.dto;
 
 import com.example.demo.model.Course;
+import lombok.Data;
 
+@Data
 public class CourseDTO {
 
     private long courseId;
@@ -9,17 +11,12 @@ public class CourseDTO {
     private String departmentName;
     private int credits;
 
-    public CourseDTO(Course course){
+    public CourseDTO(Course course) {
 
-        try {
-            this.courseId = course.getCourseId();
-            this.courseName = course.getCourseName();
-            this.credits = course.getCredits();
-            //this.departmentName = course.getDepartment().getDepartmentName();
-        }
-        catch(NullPointerException e)
-        {
-            //todo npe
-        }
+        if(course==null )
+        this.courseId = course.getCourseId();
+        this.courseName = course.getCourseName();
+        this.credits = course.getCredits();
+
     }
 }
