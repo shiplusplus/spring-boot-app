@@ -13,10 +13,8 @@ public class CourseDTO {
 
     public CourseDTO(Course course) {
 
-        if(course==null )
         this.courseId = course.getCourseId();
         this.courseName = course.getCourseName();
         this.credits = course.getCredits();
-
     }
 }

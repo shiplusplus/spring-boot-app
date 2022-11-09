@@ -7,11 +7,4 @@ public class DepartmentDto {
 
     private Long departmentId;
     private String departmentName;
-
-//    @OneToMany(mappedBy = "department")
-//    private List<Student> students;
-//
-//    @OneToMany(mappedBy = "department")
-//    private List<Course> courses;
-
 }

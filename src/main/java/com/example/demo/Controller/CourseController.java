@@ -4,9 +4,12 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Services.CourseService;
-//import com.example.demo.dto.CourseDto;
+import com.example.demo.error.DemoProjectException;
 import com.example.demo.model.Course;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -15,33 +18,59 @@ import java.util.List;
 @RestController
 @RequestMapping("/courses")
 public class CourseController {
-	@Autowired private CourseService courseService;
-	@PostMapping
-	public Course saveCourse(@Valid @RequestBody Course course)
-	{
-		return courseService.saveCourse(course);
-	}
-	@GetMapping
-	public List<Course> fetchCourses()
-	{
-		return courseService.fetchCourses();
-	}
-	@GetMapping("/{id}")
-	public Course fetchCourseById(@PathVariable("id")Long id)
-	{
-		return courseService.fetchCourseById(id);
-	}
-	@PutMapping("/{id}")
-	public Course
-	updateCourse(@RequestBody Course course, @PathVariable("id") Long courseId)
-	{
-		return courseService.updateCourse(course, courseId);
-	}
-	@DeleteMapping("/{id}")
-	public String deleteCourseById(@PathVariable("id") Long courseId)
-	{
-		courseService.deleteCourseById(courseId);
-		return "Deleted Successfully";
-	}
+    private static final Logger LOGGER = LoggerFactory.getLogger(CourseController.class);
+    @Autowired
+    private CourseService courseService;
+
+    @PostMapping
+    public Course saveCourse(@Valid @RequestBody Course course) {
+        LOGGER.info("Adding course to the repository");
+        return courseService.saveCourse(course);
+    }
+
+    @GetMapping
+    public List<Course> fetchCourses() {
+        LOGGER.info("Fetching all the courses");
+        return courseService.fetchCourses();
+
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> fetchCourseById(@PathVariable("id") Long id) {
+        LOGGER.info("Fetching a course with given ID {}", id);
+
+        try {
+            Course course = courseService.fetchCourseById(id);
+            return ResponseEntity.ok(course);
+        } catch (DemoProjectException e) {
+            LOGGER.error("Caught error {}", e.getMessage());
+            return ResponseEntity.status(e.getHttpStatus()).body(e.getMessage());
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateCourse(@RequestBody Course course, @PathVariable("id") Long courseId) {
+        LOGGER.info("Updating a course with given ID {}", courseId);
+        try {
+            Course c = courseService.updateCourse(course, courseId);;
+            return ResponseEntity.ok(course);
+        } catch (DemoProjectException e) {
+            LOGGER.error("Caught error {}", e.getMessage());
+            return ResponseEntity.status(e.getHttpStatus()).body(e.getMessage());
+        }
+
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteCourseById(@PathVariable("id") Long courseId) {
+        LOGGER.info("Deleting a course with given ID {}", courseId);
+        try {
+            courseService.fetchCourseById(courseId);
+            return ResponseEntity.ok("Deleted Successfully");
+        } catch (DemoProjectException e) {
+            LOGGER.error("Caught error {}", e.getMessage());
+            return ResponseEntity.status(e.getHttpStatus()).body(e.getMessage());
+        }
+    }
 }
 

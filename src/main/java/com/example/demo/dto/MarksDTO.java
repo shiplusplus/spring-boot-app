@@ -4,12 +4,12 @@ import com.example.demo.model.Marks;
 import lombok.Data;
 
 @Data
-public class MarkDTO {
+public class MarksDTO {
 
     String courseName;
     Integer grade;
 
-    public MarkDTO(Marks marks) {
+    public MarksDTO(Marks marks) {
         this.courseName = (marks.getCourse() != null) ? marks.getCourse().getCourseName() : null;
         this.grade = marks.getGrade();
     }

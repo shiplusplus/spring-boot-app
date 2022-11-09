@@ -11,14 +11,14 @@ import java.util.List;
 public class SemesterDTO {
 
     private Long semesterNumber;
-    private List<MarkDTO> coursesCompleted = new ArrayList<>();
+    private List<MarksDTO> coursesCompleted = new ArrayList<>();
 
     public SemesterDTO(Semester semester) {
         this.semesterNumber = semester.getSemesterNumber();
         if (semester.getMarks() != null) {
             //todo use lambda
             for (Marks m : semester.getMarks()) {
-                this.coursesCompleted.add(new MarkDTO(m));
+                this.coursesCompleted.add(new MarksDTO(m));
             }
         }
 
