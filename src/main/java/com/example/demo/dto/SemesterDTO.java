@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
@@ -18,10 +19,7 @@ public class SemesterDTO {
     public SemesterDTO(Semester semester) {
         this.semesterNumber = semester.getSemesterNumber();
         if (semester.getMarks() != null) {
-            //todo use lambda
-            for (Marks m : semester.getMarks()) {
-                this.coursesCompleted.add(new MarksDTO(m));
-            }
+            coursesCompleted=semester.getMarks().stream().map(MarksDTO::new).collect(Collectors.toList());
         }
 
     }
