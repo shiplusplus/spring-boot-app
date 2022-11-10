@@ -9,7 +9,8 @@ public interface ErrorInterface {
     String getErrorMessage();
 
     enum ErrorEnum implements ErrorInterface {
-        ID_NOT_FOUND("ID has no match in the Database", HttpStatus.BAD_REQUEST);
+        ID_NOT_FOUND("ID has no match in the Database", HttpStatus.BAD_REQUEST),
+        INCORRECT_JSON_OBJECT("Input is in the wrong format for the database",HttpStatus.BAD_REQUEST);
 
         private final HttpStatus httpStatus;
         private final String errorMessage;

@@ -3,11 +3,13 @@ package com.example.demo.dto;
 import com.example.demo.model.Marks;
 import com.example.demo.model.Semester;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@NoArgsConstructor
 public class SemesterDTO {
 
     private Long semesterNumber;

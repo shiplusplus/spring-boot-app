@@ -2,8 +2,10 @@ package com.example.demo.dto;
 
 import com.example.demo.model.Marks;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class MarksDTO {
 
     String courseName;
