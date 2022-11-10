@@ -22,20 +22,20 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
+    @ApiOperation(value = "POST course to DB")
     @PostMapping
     public CourseDTO saveCourse(@Valid @RequestBody CourseDTO course) {
         LOGGER.info("Adding course to the repository");
         return courseService.saveCourse(course);
     }
-
+    @ApiOperation(value = "GET all courses")
     @GetMapping
     public List<CourseDTO> fetchCourses() {
         LOGGER.info("Fetching all the courses");
         List<Course> courses= courseService.fetchCourses();
         return courses.stream().map(x -> new CourseDTO(x)).collect(Collectors.toList());
-
     }
-    @ApiOperation(value = "get course by id")
+    @ApiOperation(value = "GET course by id")
     @GetMapping("/{id}")
     public ResponseEntity<Object> fetchCourseById(@PathVariable("id") Long id) {
         LOGGER.info("Fetching a course with given ID {}", id);
@@ -48,6 +48,7 @@ public class CourseController {
         }
     }
 
+    @ApiOperation("PUT updated course by ID")
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateCourse(@RequestBody Course course, @PathVariable("id") Long courseId) {
         LOGGER.info("Updating a course with given ID {}", courseId);
@@ -61,7 +62,7 @@ public class CourseController {
         }
 
     }
-
+    @ApiOperation("DELETE course by ID")
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteCourseById(@PathVariable("id") Long courseId) {
         LOGGER.info("Deleting a course with given ID {}", courseId);
