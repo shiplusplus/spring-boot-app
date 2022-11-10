@@ -1,6 +1,7 @@
 package com.example.demo.Impl;
 
 import com.example.demo.Services.MarksService;
+import com.example.demo.dto.MarksDTO;
 import com.example.demo.model.Marks;
 import com.example.demo.repository.MarksRepository;
 import org.springframework.beans.factory.annotation.Autowired;

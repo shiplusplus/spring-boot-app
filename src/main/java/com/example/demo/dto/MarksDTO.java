@@ -8,11 +8,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MarksDTO {
 
-    String courseName;
+    String courseDescription;
     Integer grade;
+    Integer credits;
 
     public MarksDTO(Marks marks) {
-        this.courseName = (marks.getCourse() != null) ? marks.getCourse().getCourseName() : null;
+        this.courseDescription = (marks.getCourse() != null) ? marks.getCourse().getCourseDescription() : null;
         this.grade = marks.getGrade();
+        this.credits= marks.getCourse().getCredits();
     }
 }

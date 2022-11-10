@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 import com.example.demo.Services.DepartmentService;
+import com.example.demo.dto.DepartmentDTO;
 import com.example.demo.model.Department;
 import com.example.demo.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 	@Autowired
 	private DepartmentRepository departmentRepository;
 	@Override
-	public Department saveDepartment(Department department)
+	public DepartmentDTO saveDepartment(DepartmentDTO departmentDTO)
 	{
-		return departmentRepository.save(department);}
+		Department department=new Department();
+		department.setDepartmentName(departmentDTO.getDepartmentName());
+		return new DepartmentDTO(departmentRepository.save(department));}
 	@Override public List<Department> fetchDepartments()
 	{
 		return (List<Department>) departmentRepository.findAll();

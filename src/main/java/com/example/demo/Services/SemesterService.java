@@ -1,13 +1,14 @@
 
 package com.example.demo.Services;
 
+import com.example.demo.dto.SemesterDTO;
 import com.example.demo.model.Semester;
 
 import java.util.List;
 
 public interface SemesterService {
 
-	Semester saveSemester(Semester semester);
+	SemesterDTO saveSemester(SemesterDTO semester);
 
 	List<Semester> fetchSemesters();
 	Semester updateSemester(Semester semester,

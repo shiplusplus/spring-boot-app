@@ -1,6 +1,7 @@
 package com.example.demo.Impl;
 
 import com.example.demo.Services.SemesterService;
+import com.example.demo.dto.SemesterDTO;
 import com.example.demo.model.Semester;
 import com.example.demo.repository.SemesterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,11 @@ public class SemesterServiceImpl implements SemesterService {
 	@Autowired
 	private SemesterRepository semesterRepository;
 	@Override
-	public Semester saveSemester(Semester semester)
+	public SemesterDTO saveSemester(SemesterDTO semesterDTO)
 	{
-		return semesterRepository.save(semester);}
+		Semester semester=new Semester();
+		semester.setSemesterNumber(semesterDTO.getSemesterNumber());
+		return new SemesterDTO(semesterRepository.save(semester));}
 	@Override public List<Semester> fetchSemesters()
 	{
 		return (List<Semester>) semesterRepository.findAll();
